@@ -1,0 +1,28 @@
+<div class="slim-outer">
+          <!-- Container -->
+          <div class="container">
+            <!-- Heading -->
+            <div class="slim-heading">
+              <h2>Trending</h2>
+              <p> The top trending Celebrities</p>
+            </div>
+            <!-- Gallery Content -->
+            <div class="gallery-content">
+              <div class="row">
+                 <div class="col-md-4 col-sm-4" ng-repeat="item in items" >
+                    <div class="image-style-three gallery-item image-ranking">
+                    <!-- Image -->
+                    <!-- <img class="img-responsive" src="http://img.s1k.com/{{ item.id }}-p1.jpg" alt="" /> -->
+                    <img class="img-responsive" ng-src="http://img.s1k.com/{{ item.id }}-p1.jpg" fallback-src="http://img.s1k.com/kpop.jpg" alt="" />
+                    <!-- image hover style for image #3 -->
+                    <div class="ranking">
+                    <h4><a href="/profile/{{ item.id }}">#{{ $index + 1 }} {{ item.name }} ({{ item.score }})</a></h4>
+                    </div>
+
+                    </div>
+                  </div >
+
+              </div>
+            </div>
+          </div>
+        </div>

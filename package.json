@@ -1,0 +1,43 @@
+{
+  "name": "angularjs-demo",
+  "description": "AngularJS Demo",
+  "version": "0.0.1",
+  "homepage": "https://github.com/JasonH1/angularjs-demo.git",
+  "author": {
+    "name": "Jason Ho",
+    "email": "jasonho.ib@gmail.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/JasonH1/angularjs-demo.git"
+  },
+  "bugs": {
+    "url": "https://github.com/JasonH1/angularjs-demo/issues"
+  },
+  "main": "server.js",
+  "engines": {
+    "node": ">= 0.8.0"
+  },
+  "scripts": {
+    "test": "grunt test"
+  },
+  "dependencies": {
+    "grunt": "~0.4.2",
+    "grunt-contrib-jshint": "~0.9.2",
+    "grunt-cli": "~0.1.13",
+    "grunt-contrib-requirejs": "~0.4.4",
+    "grunt-text-replace": "~0.3.12",
+    "grunt-contrib-less": "~0.11.1",
+    "grunt-contrib-copy": "~0.5.0",
+    "node-version-assets": "~0.2.0",
+    "requirejs": "~2.1.14",
+    "load-grunt-tasks": "~0.2.0",
+    "grunt-contrib-clean": "~0.4.0",
+    "express": "~3.4.4",
+    "request": "*",
+    "grunt-express-server": "~0.4.17"
+  },
+  "devDependencies": {},
+  "bundleDependencies": [],
+  "private": true
+}
