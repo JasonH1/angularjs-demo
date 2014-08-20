@@ -4,7 +4,8 @@ define(function(require) {
     var angular = require('angular'),
         template = require('text!./profile.html'),
         maincontroller = require('./controllers/main'),
-        rgraph = require('libs/Rgraph'),
+        libimgfallback = require('./../../libs/angular.dcb-img-fallback'),
+        rgraph = require('./../../libs/Rgraph'),
         module;
 
     module = angular.module('app.profile', ['ngRoute', 'libs.img-fallback']);

@@ -3,7 +3,7 @@ define(function(require) {
     'use strict';
     var angular = require('angular'),
         template = require('text!./home.html'),
-        libimgfallback = require('libs/angular.dcb-img-fallback'),
+        libimgfallback = require('./../../libs/angular.dcb-img-fallback'),
         maincontroller = require('./controllers/main'),
         module;
 

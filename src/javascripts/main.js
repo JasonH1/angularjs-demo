@@ -29,7 +29,6 @@ require.config({
     angularBootstrap: '../bower_components/angular-bootstrap/ui-bootstrap-tpls',
     lodash: '../bower_components/lodash/dist/lodash',
     text: '../bower_components/requirejs-text/text',
-    libs: '../javascripts/app/libs',
     moment: '../bower_components/momentjs/min/moment.min'
   },
 

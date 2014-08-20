@@ -4,7 +4,7 @@ define(function(require) {
     var angular = require('angular'),
         angularBootstrap = require('angularBootstrap'),
         angularRoute = require('angularRoute'),
-        libimgfallback = require('libs/angular.dcb-img-fallback'),
+        libimgfallback = require('./libs/angular.dcb-img-fallback'),
         storage = require('angularLocalStorage'),
         security = require('./common/security/authentication'),
         features = require('./common/security/features'),
