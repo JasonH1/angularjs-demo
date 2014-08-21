@@ -23,7 +23,7 @@ define(function(require) {
               template: template,
               controller: 'ProfileController'
             })
-            .when('/profile/:id?', {
+            .when('/profile/:id?/:site?/:sector?', {
               template: template,
               controller: 'ProfileController'
             })

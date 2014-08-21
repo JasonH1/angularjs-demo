@@ -23,8 +23,14 @@ define(function(require) {
 
             return deferred.promise;
         };
-         service.getChart = function(id) {
+         service.getChart = function(options) {
             var deferred = $q.defer();
+            var id = options.id ;
+            var sector;
+            if (options.sector !== 'all') {
+                id = id + ':' + options.sector;
+            }
+            console.log(id);
             $http.get('http://api.kpop.s1k.com/rssbuzz/historical/' + id + '?gran=1day', {}).
             success(function(response) {
                 deferred.resolve({ error: null , chart: response});

@@ -9,6 +9,10 @@ define(function(require) {
     controller = ['$scope', 'rankingsResource', '$routeParams',
     function($scope, rankingsResource, $routeParams) {
       $scope.direction = $routeParams.direction || 'asc';
+      $scope.params = {};
+      $scope.params.site = $routeParams.site || 'kpopbuzz';
+      $scope.params.sector = $routeParams.sector || 'all';
+
       if ($routeParams.direction === 'desc') {
         $scope.title = 'Falling';
         $scope.title_sub = 'The top falling Celebrities';
