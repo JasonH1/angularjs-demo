@@ -26,6 +26,24 @@ define(function(require) {
                 }
               }
             })
+            .when('/trending', {
+              template: template,
+              controller: 'HomeController',
+              resolve: {
+                RankingData: function(rankingsResource) {
+                  return rankingsResource.getRankings();
+                }
+              }
+            })
+            .when('/trending/:direction?', {
+              template: template,
+              controller: 'HomeController',
+              resolve: {
+                RankingData: function(rankingsResource) {
+                  return rankingsResource.getRankings('desc');
+                }
+              }
+            })
         }
       ]
     ).controller('HomeController', maincontroller);

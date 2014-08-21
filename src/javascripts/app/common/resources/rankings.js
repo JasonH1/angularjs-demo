@@ -23,9 +23,9 @@ define(function(require) {
 
             return deferred.promise;
         }
-        service.getRankings = function() {
+        service.getRankings = function(direction) {
             var deferred = $q.defer();
-            $http.get('http://api.kpop.s1k.com/kpopbuzz.all', {}).
+            $http.get('http://api.kpop.s1k.com/kpopbuzz.all?'+ direction+ '=true', {}).
             success(function(response) {
                 deferred.resolve({ error: null , items: response.items});
             }).

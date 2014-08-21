@@ -21,9 +21,34 @@ define(function(require) {
         });
         var count = 0;
         var labels = _.map($scope.chart, function(item) {
-          return --count;
+          return count--;
         });
-        labels = labels.reverse();
+
+            var tooltips = _.map($scope.chart, function(item) {
+              return 'Buzz Score: ' + String(item[1]);
+            });
+            tooltips = tooltips.reverse();
+
+            console.log(data);
+            var line = new RGraph.Line({
+                id: 'cvs',
+                data: data.reverse(),
+                options: {
+                     tooltips: {
+                        self: tooltips,
+                        highlight: false
+                    },
+                    //colors: ['#058DC7'],
+                    filled: true,
+                    fillstyle: 'rgba(229,243,249,0.5)',
+                    //tickmarks: 'filledcircle',
+                    labels: labels,
+                    yaxispos: 'left',
+                    xaxispos: 'center',
+                    hmargin: 5
+                }
+            }).trace()
+        /*
           var tooltips = [];
             // Create the tooltips
             for (var i=0; i<data.length; i+=1) {
@@ -71,6 +96,7 @@ define(function(require) {
               }
           });
           RGraph.ISOLD ? line.draw() : line.trace2();
+          */
       });
     }
   ];
