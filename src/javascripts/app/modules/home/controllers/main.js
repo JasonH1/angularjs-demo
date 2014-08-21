@@ -6,11 +6,10 @@ define(function(require) {
         _ = require('lodash'),
         controller;
 
-    controller = ['$scope', 'RankingData', '$routeParams',
-    function($scope, RankingData, $routeParams) {
-      console.log($routeParams);
+    controller = ['$scope', 'rankingsResource', '$routeParams',
+    function($scope, rankingsResource, $routeParams) {
       $scope.direction = $routeParams.direction || 'asc';
-      if ($routeParams.direction) {
+      if ($routeParams.direction === 'desc') {
         $scope.title = 'Falling';
         $scope.title_sub = 'The top falling Celebrities';
       } else {
@@ -18,9 +17,16 @@ define(function(require) {
         $scope.title_sub = 'The top trending Celebrities';
       }
       $scope.items = {};
-      if (RankingData.items) {
-        $scope.items = RankingData.items;
-      };
+      $scope.urlroute = 'http://img.s1k.com';
+      if ($routeParams.site === 'famebuzz') {
+        $scope.urlroute = 'http://img1.fame500.com';
+      }
+      rankingsResource.getRankings($routeParams).then(function(result) {
+        if (result.items) {
+          $scope.items = result.items;
+        };
+      });
+
 
     }
   ];

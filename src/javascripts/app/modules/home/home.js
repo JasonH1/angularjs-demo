@@ -20,29 +20,10 @@ define(function(require) {
             .when('/', {
               template: template,
               controller: 'HomeController',
-              resolve: {
-                RankingData: function(rankingsResource) {
-                  return rankingsResource.getRankings();
-                }
-              }
             })
-            .when('/trending', {
+            .when('/trending/:site?/:sector?/:direction?', {
               template: template,
               controller: 'HomeController',
-              resolve: {
-                RankingData: function(rankingsResource) {
-                  return rankingsResource.getRankings();
-                }
-              }
-            })
-            .when('/trending/:direction?', {
-              template: template,
-              controller: 'HomeController',
-              resolve: {
-                RankingData: function(rankingsResource) {
-                  return rankingsResource.getRankings('desc');
-                }
-              }
             })
         }
       ]

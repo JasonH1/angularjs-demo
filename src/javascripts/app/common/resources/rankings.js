@@ -13,7 +13,7 @@ define(function(require) {
         var service = {};
         service.getLastUpdate = function() {
           var deferred = $q.defer();
-            $http.get('http://api.kpop.s1k.com/KPOP:STATS/latest', {}).
+            $http.get('http://api.kpop.s1k.com/kpopbuzz:STATS/latest', {}).
             success(function(response) {
                 deferred.resolve({ error: null , lastupdate: response});
             }).
@@ -23,9 +23,14 @@ define(function(require) {
 
             return deferred.promise;
         }
-        service.getRankings = function(direction) {
+        service.getRankings = function(options) {
             var deferred = $q.defer();
-            $http.get('http://api.kpop.s1k.com/kpopbuzz.all?'+ direction+ '=true', {}).
+            var direction = options.direction || 'asc';
+            var site = options.site || 'kpopbuzz';
+            var sector = options.sector || 'all';
+            console.log(options);
+
+            $http.get('http://api.kpop.s1k.com/'+ site +'.' + sector + '?'+ direction+ '=true', {}).
             success(function(response) {
                 deferred.resolve({ error: null , items: response.items});
             }).

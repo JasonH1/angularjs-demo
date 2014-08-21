@@ -13,7 +13,7 @@
                     <div class="image-style-three gallery-item image-ranking">
                     <!-- Image -->
                     <!-- <img class="img-responsive" src="http://img.s1k.com/{{ item.id }}-p1.jpg" alt="" /> -->
-                    <img class="img-responsive" ng-src="http://img.s1k.com/{{ item.id }}-p1.jpg" fallback-src="http://img.s1k.com/kpop.jpg" alt="" />
+                    <img class="img-responsive" ng-src="{{ urlroute }}/{{ item.id }}-p1.jpg" fallback-src="http://img.s1k.com/kpop.jpg" alt="" />
                     <!-- image hover style for image #3 -->
                     <div class="ranking">
                     <h4><a href="/profile/{{ item.id }}">#{{ $index + 1 }} {{ item.name }} ({{ item.score }})</a></h4>
