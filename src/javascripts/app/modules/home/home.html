@@ -10,15 +10,18 @@
             <div class="gallery-content">
               <div class="row">
                  <div class="col-md-4 col-sm-4" ng-repeat="item in items" >
-                    <div class="image-style-three gallery-item image-ranking">
-                    <!-- Image -->
-                    <!-- <img class="img-responsive" src="http://img.s1k.com/{{ item.id }}-p1.jpg" alt="" /> -->
-                    <img class="img-responsive" ng-src="{{ urlroute }}/{{ item.id }}-p1.jpg" fallback-src="http://img.s1k.com/kpop.jpg" alt="" />
-                    <!-- image hover style for image #3 -->
-                    <div class="ranking">
-                    <h4><a href="/profile/{{ item.id }}/{{ params.site }}/{{ params.sector }}">#{{ $index + 1 }} {{ item.name }} ({{ item.score }})</a></h4>
-                    </div>
-
+                      <div class="thumbnail thumbnail-body-item">
+                        <a href="/profile/{{ item.id }}/{{ params.site }}/{{ params.sector }}"><img ng-src="{{ urlroute }}/{{ item.id }}-p1.jpg" fallback-src="http://img.s1k.com/kpop.jpg" alt="" /></a>
+                      <!--  <div class="ranking">
+                        <h4><a href="/profile/{{ item.id }}/{{ params.site }}/{{ params.sector }}">#{{ $index + 1 }} {{ item.name }} ({{ item.score }})</a></h4> -->
+                        <div class="bg-info"></div>
+                        <div class="info">
+                            <a style="color:#fff" href="/profile/{{ item.id }}/{{ params.site }}/{{ params.sector }}"><span>#{{ $index + 1 }} {{ item.name }} </span></a>
+                        </div>
+                        <div class="bg-buzzscore">
+                        </div>
+                        <div class="buzzscore">{{ item.score }}</div>
+                      </div>
                     </div>
                   </div >
 
