@@ -39,8 +39,15 @@ margin-left: 7%;
 background: #000;
 opacity: 0.5;
 }
-.thumbnail img {
-	max-height: 200px;
+.thumbnail img.scale2 {
+	/* corrects inline gap in enclosing div */
+  display: block;
+  max-width: 100%;
+  /* just in case, to force correct aspect ratio */
+  height: auto !important;
+  width: auto\9; /* ie8+9 */
+  /* lt ie8 */
+  -ms-interpolation-mode: bicubic;
 }
 .coming-box .thumbnail-body-item .info {
 bottom: 12px;
@@ -89,6 +96,12 @@ width: 23%;
 overflow: hidden;
 color: #fff;
 font-weight: bold;
+}
+
+.crop-height {
+  /* max-width: 1200px; /* img src width (if known) */
+  max-height: 200px;
+  overflow: hidden;
 }
 
 .rank-star2 {
