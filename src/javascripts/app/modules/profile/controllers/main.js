@@ -54,7 +54,7 @@ define(function(require) {
                           self: tooltips,
                           highlight: false
                       },
-                      title: options.sector + ' by day.',
+                      title: 'Last 2 weeks (daily) - sector: ' + options.sector,
                       filled: true,
                       fillstyle: 'rgba(229,243,249,0.5)',
 

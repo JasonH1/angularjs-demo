@@ -31,7 +31,7 @@ define(function(require) {
                 id = id + ':' + options.sector;
             }
             console.log(id);
-            $http.get('http://api.kpop.s1k.com/rssbuzz/historical/' + id + '?gran=1day', {}).
+            $http.get('http://api.kpop.s1k.com/rssbuzz/historical/' + id + '?gran=1day&count=14', {}).
             success(function(response) {
                 deferred.resolve({ error: null , chart: response});
             }).
