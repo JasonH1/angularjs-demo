@@ -11,7 +11,7 @@ var express = require('express'),
     app = express(),
     request = require("request"),
     qs = require('querystring'),
-    DEPLOY = false;
+    DEPLOY = (process.env.DEPLOY || process.argv[2]) == 'build' ? true : false;
 
 
 request = request.defaults({

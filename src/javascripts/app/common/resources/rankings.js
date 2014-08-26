@@ -22,13 +22,13 @@ define(function(require) {
             });
 
             return deferred.promise;
-        }
+        };
+
         service.getRankings = function(options) {
             var deferred = $q.defer();
             var direction = options.direction || 'asc';
             var site = options.site || 'kpopbuzz';
-            var sector = options.sector || 'all';
-            console.log(options);
+            var sector = options.sector || 'kpopstarz';
 
             $http.get('http://api.kpop.s1k.com/'+ site +'.' + sector + '?'+ direction+ '=true', {}).
             success(function(response) {

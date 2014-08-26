@@ -13,7 +13,7 @@ grunt.initConfig({
     },
     /** Less compiler config **/
     less: {
-        for_prod: {
+        build: {
             options: {
                cleancss: true,
                strictImports: true,
@@ -22,7 +22,7 @@ grunt.initConfig({
                compress: true,
             },
             files: {
-                '<%= config.outputBase %>/stylesheets/app.css' : '<%= config.inputBase %>/stylesheets/app.less'
+                '<%= config.outputBase %>/css/app.css' : '<%= config.inputBase %>/less/main.less'
             }
         }
     },
@@ -32,9 +32,9 @@ grunt.initConfig({
           jshintrc: '.jshintrc'
         },
         all: [
-            '<%= config.inputBase %>/javascripts/telepath/**/*.js',
-            '<%= config.inputBase %>/partials/**/*.js',
-            grunt.file.read('.jshintignore').trim().split('\n').map(function(s) { return '!' + s; })
+            '<%= config.inputBase %>/javascripts/app/common/**/*.js',
+            '<%= config.inputBase %>/javascripts/app/modules/**/*.js',
+            //grunt.file.read('.jshintignore').trim().split('\n').map(function(s) { return '!' + s; })
         ]
         //test: [ 'test/**/*.js' ],
 
@@ -50,19 +50,21 @@ grunt.initConfig({
             }
         }
     },
-    express: {
-        local: {
-            options: {
-                script: 'server.js',
-                node_env: 'local'
-            }
+    copy: {
+        build: {
+            files: [
+                { flatten: false, expand: true, cwd: '<%= config.inputBase %>',
+                    src: 'bower_components/requirejs/require.js', dest: '<%= config.outputBase %>' }
+            ]
         },
-        production: {
-            options: {
-                script: 'server.js',
-            }
-        }
-    }
+        others: {
+            files: [{
+              src: 'src/js/html5shiv.js',
+              dest: 'build/js/html5shiv.js'
+            }]
+          }
+    },
+
 });
 
   grunt.registerTask('devserver', [
@@ -72,6 +74,7 @@ grunt.initConfig({
   grunt.registerTask('build', [
     'jshint',
     'less',
+    'copy',
     'requirejs'
   ]);
 };

@@ -20,7 +20,7 @@ define(function(require) {
               controller: function($scope) {
                 console.log('login');
               }
-            })
+            });
         }
       ]
     );

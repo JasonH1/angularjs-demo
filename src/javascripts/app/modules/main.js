@@ -7,5 +7,5 @@ define(function(require) {
     home: require('./home/home'),
     profile: require('./profile/profile'),
     login: require('./login/login')
-  }
+  };
 });
