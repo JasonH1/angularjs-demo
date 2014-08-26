@@ -3,6 +3,7 @@ define(function(require) {
   var
     angular = require('angular'),
     angularResource = require('angularResource'),
+    _ = require('lodash'),
     module;
 
     module = angular.module('common.resources.rankings', []);
@@ -32,6 +33,18 @@ define(function(require) {
 
             $http.get('http://api.kpop.s1k.com/'+ site +'.' + sector + '?'+ direction+ '=true', {}).
             success(function(response) {
+                var len = response.items.length;
+                while (len--) {
+                    if (direction === 'asc') {
+                        if (response.items[len].score <= 0) {
+                             response.items.splice(len, 1);
+                        }
+                    } else {
+                        if (response.items[len].score >= 0) {
+                             response.items.splice(len, 1);
+                        }
+                    }
+                }
                 deferred.resolve({ error: null , items: response.items});
             }).
             error(function(err) {
