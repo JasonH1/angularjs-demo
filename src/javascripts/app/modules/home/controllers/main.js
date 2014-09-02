@@ -37,7 +37,7 @@ define(function(require) {
       rankingsResource.getRankings($routeParams).then(function(result) {
         if (result.items) {
           $scope.items = result.items;
-        };
+        }
       });
 
 

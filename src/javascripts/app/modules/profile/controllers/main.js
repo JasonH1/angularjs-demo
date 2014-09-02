@@ -1,4 +1,4 @@
-/* istanbul ignore next */
+/*global RGraph:false */
 define(function(require) {
     'use strict';
      var
@@ -63,7 +63,7 @@ define(function(require) {
                       xaxispos: 'center',
                       hmargin: 5
                   }
-              }).trace()
+              }).trace();
               if (options.sector !== 'all') {
                 $scope.results.push({ name: options.sector , score: score });
                 $scope.total += score;

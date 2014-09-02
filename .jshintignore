@@ -1,2 +1,2 @@
-src/javascripts/telepath/directives/angular-slider.js
+src/javascripts/app/libs/*.js
 test/

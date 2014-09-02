@@ -24,7 +24,7 @@ define(function(require) {
             .when('/trending/:site?/:sector?/:direction?', {
               template: template,
               controller: 'HomeController',
-            })
+            });
         }
       ]
     ).controller('HomeController', maincontroller);

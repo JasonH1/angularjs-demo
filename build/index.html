@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Kpop Buzz</title>
+    <!-- Description, Keywords and Author -->
+    <meta name="description" content="Your description">
+    <meta name="keywords" content="Your,Keywords">
+    <meta name="author" content="ResponsiveWebInc">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/app.css" media="all" rel="stylesheet" type="text/css" />
+
+    <link rel="shortcut icon" href="#">
+  </head>
+
+   <body class="no-box">
+
+   <div class="index-slim" ng-controller='MainController'>
+        <!-- Top Starts -->
+        <div class="slim-top">
+          <!-- Container -->
+          <div class="container">
+            <div class="row">
+              <div class="col-md-5 col-sm-6 col-xs-6">
+                <a href="#"><i class="fa fa-envelope bg-color white circle-2"></i>&nbsp; jasonho.ib@gmail.com</a>
+              </div>
+              <div class="col-md-7 col-sm-6 col-xs-6">
+                <!-- Social -->
+                <div class="brand-bg pull-right">
+                    Last updated: {{ lastUpdate }}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Top ends -->
+
+       <!-- Header Starts -->
+      <div class="slim-header" ng-include="'navbar'">
+
+      </div>
+      <!-- Header Ends -->
+
+      <!-- Main Starts -->
+      <div class="slim-gallery" ng-view>
+
+      </div>
+      <!-- Main Ends -->
+
+
+
+      <!--footer start-->
+      <footer class="site-footer" ng-include="'footer'">
+
+      </footer>
+      <script src="/js/html5shiv.js"></script>
+         <script src='/bower_components/requirejs/require.js'
+                data-main='/javascripts/main'></script>
+    </body>
+</html>

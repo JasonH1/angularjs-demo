@@ -32,7 +32,7 @@ define(function(require) {
         };
 
         service.checkSession = function() {
-           ;
+
         };
 
         service.login = function(email, password) {
