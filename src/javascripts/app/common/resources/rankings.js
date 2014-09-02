@@ -22,7 +22,7 @@ define(function(require) {
             });
 
             return deferred.promise;
-        }
+        };
         service.getRankings = function(options) {
             var deferred = $q.defer();
             var direction = options.direction || 'asc';
