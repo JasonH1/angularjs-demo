@@ -3,15 +3,19 @@
           <div class="container">
             <!-- Heading -->
             <div class="slim-heading">
-              <h2>{{ title }}</h2>
-              <p>{{ title_sub }}</p>
+              <h2 ng-if="newbuzz">Buzz Charts Rolling 7 day score</h2>
+              <h2 ng-if="!newbuzz">{{ title }}</h2>
+              <p ng-if="!newbuzz">{{ title_sub }}</p>
             </div>
             <!-- Gallery Content -->
             <div class="gallery-content">
               <div class="row">
                  <div class="col-md-4" ng-repeat="item in items" >
                       <div class="thumbnail thumbnail-body-item crop-height">
-                        <a href="/profile/{{ item.id }}/{{ params.site }}/{{ params.sector }}"><img class="scale" ng-src="{{ urlroute }}/{{ item.id }}-p1.jpg" fallback-src="http://img.s1k.com/kpop.jpg" loading-src="http://img.s1k.com/kpop.jpg" /></a>
+                        <a href="/profile/{{ item.id }}/{{ params.site }}/{{ params.sector }}">
+                              <img ng-if="newbuzz" class="scale" ng-src="{{ urlroute }}/{{ item.thumbnail }}" fallback-src="http://img.s1k.com/kpop.jpg" loading-src="http://img.s1k.com/kpop.jpg" />
+                              <img ng-if="!newbuzz" class="scale" ng-src="{{ urlroute }}/{{ item.id }}-p1.jpg" fallback-src="http://img.s1k.com/kpop.jpg" loading-src="http://img.s1k.com/kpop.jpg" />
+                        </a>
                         <div class="bg-info"></div>
 
                         <div class="info">

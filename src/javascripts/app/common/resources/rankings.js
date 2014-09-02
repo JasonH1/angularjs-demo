@@ -28,10 +28,20 @@ define(function(require) {
             var direction = options.direction || 'asc';
             var site = options.site || 'kpopbuzz';
             var sector = options.sector || 'all';
-            console.log(options);
+            var url;
+            if (site.indexOf('buzzcharts')>= 0) {
+                url = 'http://api.kpop.s1k.com/'+ site+ '?per_page=200';
+            } else {
+                url = 'http://api.kpop.s1k.com/'+ site +'.' + sector + '?'+ direction+ '=true';
+            }
 
-            $http.get('http://api.kpop.s1k.com/'+ site +'.' + sector + '?'+ direction+ '=true', {}).
+            $http.get(url, {}).
             success(function(response) {
+                for(var i in response.items) {
+                    if (response.items[i].attributes) {
+                        response.items[i].thumbnail = response.items[i].attributes['thumbnail-image'].value;
+                    }
+                }
                 deferred.resolve({ error: null , items: response.items});
             }).
             error(function(err) {

@@ -10,6 +10,7 @@ define(function(require) {
     function($scope, rankingsResource, $routeParams) {
       $scope.direction = $routeParams.direction || 'asc';
       $scope.params = {};
+      $scope.newbuzz = false;
       $scope.params.site = $routeParams.site || 'kpopbuzz';
       $scope.params.sector = $routeParams.sector || 'all';
 
@@ -22,9 +23,17 @@ define(function(require) {
       }
       $scope.items = {};
       $scope.urlroute = 'http://img.s1k.com';
-      if ($routeParams.site === 'famebuzz') {
-        $scope.urlroute = 'http://img1.fame500.com';
+      switch($routeParams.site) {
+        case 'famebuzz':
+          $scope.urlroute = 'http://img1.fame500.com';
+          break;
+        case 'buzzcharts':
+        case 'buzzcharts2':
+          $scope.urlroute = 'http://img1.fame500.com';
+          $scope.newbuzz = true;
       }
+
+
       rankingsResource.getRankings($routeParams).then(function(result) {
         if (result.items) {
           $scope.items = result.items;
