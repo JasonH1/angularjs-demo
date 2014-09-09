@@ -20,6 +20,7 @@ require.config({
     jquery: '../bower_components/jquery/dist/jquery',
     bootstrap: '../bower_components/bootstrap/dist/js/bootstrap.min',
     angular: '../bower_components/angular/angular',
+    angularScroll: '../bower_components/angular-infinite-scroll/angular-infinite-scroll',
     angularTouch: '../bower_components/angular-touch/angular-touch',
     angularLocalStorage: '../bower_components/angularLocalStorage/src/angularLocalStorage',
     angularResource: '../bower_components/angular-resource/angular-resource',

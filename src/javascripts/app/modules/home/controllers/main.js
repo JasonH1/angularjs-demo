@@ -21,7 +21,7 @@ define(function(require) {
         $scope.title = 'Trending';
         $scope.title_sub = 'The top trending Celebrities';
       }
-      $scope.items = {};
+      $scope.items = [];
       $scope.urlroute = 'http://img.s1k.com';
       switch($routeParams.site) {
         case 'famebuzz':
@@ -33,14 +33,25 @@ define(function(require) {
           $scope.newbuzz = true;
       }
 
-
-      rankingsResource.getRankings($routeParams).then(function(result) {
-        if (result.items) {
-          $scope.items = result.items;
+      $scope.loading = false;
+      $scope.options = $routeParams;
+      $scope.options.page = 1;
+      $scope.page = function() {
+        if (!$scope.loading) {
+          $scope.loading = true;
+          rankingsResource.getRankings($scope.options).then(function(result) {
+            if (result.items) {
+              if (result.items.length > 0) {
+                  $scope.items = $scope.items.concat(result.items);
+                  $scope.options.page++;
+                  $scope.loading = false;
+              } else {
+                console.log('finished');
+              }
+            }
+          });
         }
-      });
-
-
+      };
     }
   ];
 

@@ -28,11 +28,13 @@ define(function(require) {
             var direction = options.direction || 'asc';
             var site = options.site || 'kpopbuzz';
             var sector = options.sector || 'all';
+            var page = options.page || 1;
+            var per_page = options.per_page || 18;
             var url;
             if (site.indexOf('buzzcharts')>= 0) {
-                url = 'http://api.kpop.s1k.com/'+ site+ '?per_page=200';
+                url = 'http://api.kpop.s1k.com/'+ site+ '?page='+ page +'&per_page='+ per_page;
             } else {
-                url = 'http://api.kpop.s1k.com/'+ site +'.' + sector + '?'+ direction+ '=true';
+                url = 'http://api.kpop.s1k.com/'+ site +'.' + sector + '?'+ direction+ '=true&page='+ page +'&per_page='+ per_page;
             }
 
             $http.get(url, {}).
