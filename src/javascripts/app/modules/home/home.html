@@ -10,7 +10,7 @@
             <!-- Gallery Content -->
             <div class="gallery-content">
               <div class="row">
-                 <div class="col-md-4" ng-repeat="item in items" >
+                 <div class="col-xs-4 col-sm-4 col-md-4" ng-repeat="item in items" >
                       <div class="thumbnail thumbnail-body-item crop-height">
                         <a href="/profile/{{ item.id }}/{{ params.site }}/{{ params.sector }}">
                               <img ng-if="newbuzz" class="scale" ng-src="{{ urlroute }}/{{ item.thumbnail }}" fallback-src="http://img.s1k.com/kpop.jpg" loading-src="http://img.s1k.com/kpop.jpg" />
